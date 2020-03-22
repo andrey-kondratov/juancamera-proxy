@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_POSIX_C_SOURCE=200112L"
+            ]
+        }
+    ],
+    "version": 4
+}
