@@ -14,6 +14,12 @@ to incoming connections.
 
 where `hostname` - the hostname or IP address of the camera.
 
+To play the stream, you can use `ffplay`:
+
+```
+ffplay -i tcp://localhost:64444
+```
+
 ## Limitations
 
 Only one client connection is supported.
