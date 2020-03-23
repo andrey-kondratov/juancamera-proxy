@@ -1,3 +1,5 @@
+![Build](https://github.com/andead/juancamera-proxy/workflows/Build/badge.svg)
+
 # Guangzhou Juan IP Camera proxy
 
 A proxy server app for streaming video from a Guangzhou Juan IP camera without
