@@ -41,44 +41,10 @@ int connect_camera(const char *hostname)
     }
 
     // handshake
-    char *request1 = "GET /bubble/live?ch=0&stream=0 HTTP/1.1\r\n\r\n";
-    if (-1 == send(socket_fd, request1, strlen(request1), 0))
+    char *request = "GET /livestream/12 HTTP/1.1\r\nAuthorization: Basic YWRtaW46\r\n\r\n";
+    if (-1 == send(socket_fd, request, strlen(request), 0))
     {
-        fprintf(stderr, "handshake send #1: %s\n", strerror(errno));
-        return -1;
-    }
-
-    char response1[1142];
-    if (-1 == recv(socket_fd, &response1, sizeof response1, 0))
-    {
-        fprintf(stderr, "handshake recv #1: %s\n", strerror(errno));
-        return -1;
-    }
-
-    char request2[] = {
-        0xaa, 0, 0, 0, 0x35, 0, 0x0e, 0x16, 0xc2, 0x71, 0, 0, 0, 0x2c, 0, 0, 0, 0,
-        0x61, 0x64, 0x6d, 0x69, 0x6e, // admin
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-    if (-1 == send(socket_fd, &request2, sizeof request2, 0))
-    {
-        fprintf(stderr, "handshake send #2: %s\n", strerror(errno));
-        return -1;
-    }
-
-    char response2[54];
-    if (-1 == recv(socket_fd, response2, sizeof response2, 0))
-    {
-        fprintf(stderr, "handshake recv2: %s\n", strerror(errno));
-        return -1;
-    }
-
-    char request3[] = {
-        0xaa, 0, 0, 0, 0x15, 0x0a, 0x0e, 0x16, 0xc2, 0xdf,
-        0, 0, 0, 0, 0, 0, 0, 0, 0x01, 0, 0, 0, 0, 0, 0, 0};
-    if (-1 == send(socket_fd, &request3, sizeof request3, 0))
-    {
-        fprintf(stderr, "handshake send #3: %s\n", strerror(errno));
+        fprintf(stderr, "send: %s\n", strerror(errno));
         return -1;
     }
 
