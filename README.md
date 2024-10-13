@@ -1,5 +1,7 @@
 ![Build](https://github.com/andead/juancamera-proxy/workflows/Build/badge.svg)
 
+> This project is now archived as I no longer use the camera. Feel free to create a fork and maintain your version.
+
 # Guangzhou Juan IP Camera proxy
 
 A proxy server app for streaming video from a Guangzhou Juan IP camera without
